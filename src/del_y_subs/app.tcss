@@ -1,5 +1,5 @@
 DataTable {
     border-title-align: left;
-    border: heavy $accent;
+    border: heavy $primary;
     height: 100%;
 }

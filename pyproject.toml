@@ -8,6 +8,9 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "google-api-python-client>=2.200.0",
+    "google-auth-oauthlib>=1.4.1",
+    "pydantic>=2.13.5",
     "textual>=8.2.8",
 ]
 
@@ -20,5 +23,5 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "textual[dev]>=8.2.8",
+    "textual-dev>=1.8.0",
 ]

@@ -1,0 +1,34 @@
+YesNoDialog {
+    align: center middle;
+}
+
+#dialog-window {
+    grid-size: 2 3;
+    grid-gutter: 1 2;
+    /* grid-rows: 1fr 3; */
+    padding: 1 2;
+    background: $surface;
+    border: thick $primary;
+    width: 80%;
+    height: auto;
+}
+
+#message1 {
+    column-span: 2;
+    padding: 1;
+    height: 100%;
+    content-align: center middle;
+    text-align: center;
+}
+
+#message2 {
+    column-span: 2;
+    padding: 1;
+    height: 100%;
+    content-align: center middle;
+    text-align: center;
+}
+
+Button {
+    width: 100%;
+}
