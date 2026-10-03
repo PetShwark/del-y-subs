@@ -30,8 +30,8 @@ class YesNoDialog(ModalScreen[bool]):
         with Grid(id="dialog-window"):
             yield Label(self.message1, id="message1")
             yield Label(self.message2, id="message2")
-            yield Button("Yes", id="yes", variant="success")
-            yield Button("No", id="no", variant="error")
+            yield Button("Yes", id="yes_button", variant="success")
+            yield Button("No", id="no_button", variant="error")
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "yes":
@@ -39,17 +39,22 @@ class YesNoDialog(ModalScreen[bool]):
         else:
             self.dismiss(False)
 
+    def on_mount(self) -> None:
+        self.query_one("#no_button").focus()
+
 
 class DelYSubsApp(App):
     """A simple Textual TUI application."""
 
     BINDINGS = [
         ("d", "toggle_dark", "Toggle dark mode"),
+        ("enter", "", "Toggle channel selection"),
         ("q", "quit_app", "Quit app"),
         ("x", "unsubscribe_selected", "Unsubscribe selected channels"),
     ]
     CSS_PATH = "app.tcss"
     TITLE = "Del-YouTube-Subs"
+    ENABLE_COMMAND_PALETTE = False
 
     def __init__(self, client_secrets_file_path: Path, token_file_path: Path):
         super().__init__()
